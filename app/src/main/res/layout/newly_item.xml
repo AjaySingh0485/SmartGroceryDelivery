@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:padding="5dp"
+    android:layout_height="wrap_content">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="5dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="5dp"
+        app:cardUseCompatPadding="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:background="@color/login_back"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="left|center"
+            android:weightSum="5"
+            android:padding="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Number : "
+                android:layout_gravity="center"
+                android:gravity="left|center"
+                android:textColor="@color/fontcolor"
+                android:textSize="12dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SG1118"
+                android:layout_gravity="center"
+                android:gravity="left|center"
+                android:textColor="@color/hintcolor"
+                android:textSize="12dp"
+                android:textStyle="normal"></TextView>
+        </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/fontcolor"
+                android:alpha="0.2"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:gravity="left|center"
+            android:weightSum="5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date : "
+                android:layout_gravity="center"
+                android:gravity="left|center"
+                android:textColor="@color/fontcolor"
+                android:textSize="12dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6/9/2020 11:11:09 AM"
+                android:layout_gravity="center"
+                android:gravity="left|center"
+                android:textColor="@color/hintcolor"
+                android:textSize="12dp"
+                android:textStyle="normal"></TextView>
+        </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/fontcolor"
+                android:alpha="0.2"></View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="left|center"
+            android:padding="5dp"
+            android:weightSum="5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status : "
+                android:layout_gravity="center"
+                android:gravity="left|center"
+                android:textColor="@color/fontcolor"
+                android:textSize="12dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3.5"
+                android:layout_height="wrap_content"
+                android:text="ReadyForPickup"
+                android:layout_gravity="center"
+                android:gravity="left|center"
+                android:textColor="@color/green_end"
+                android:textSize="12dp"
+                android:textStyle="normal"></TextView>
+        </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/fontcolor"
+                android:alpha="0.2"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="left|center"
+            android:weightSum="5"
+            android:padding="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vendor:"
+                android:layout_gravity="center|left"
+                android:gravity="left|center"
+                android:textColor="@color/fontcolor"
+                android:textSize="12dp"
+                android:padding="2dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smart Grocery Special, Shop 1,8076279681"
+                android:layout_gravity="center|left"
+                android:gravity="left|center"
+                android:textColor="@color/hintcolor"
+                android:textSize="12dp"
+                android:padding="2dp"
+                android:textStyle="normal"></TextView>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="left|center"
+                android:padding="5dp"
+                android:weightSum="5"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/border_background"
+                    android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+
+                    android:drawableLeft="@drawable/direction"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Direction to Vendor"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="12dp"
+                    android:textStyle="bold"></TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginLeft="2dp"
+                    android:background="@drawable/border_background"
+                    android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+
+                    android:text="Call Vendor"
+                    android:drawableLeft="@drawable/call_icon"
+                    android:layout_gravity="right"
+                    android:gravity="center"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="12dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:drawablePadding="5dp"
+                    android:textStyle="bold"></TextView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/fontcolor"
+                android:alpha="0.2"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="left|center"
+                android:weightSum="5"
+                android:padding="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shipping Address:"
+                    android:layout_gravity="center|left"
+                    android:gravity="left|center"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="12dp"
+                    android:padding="2dp"
+                    android:textStyle="bold"></TextView>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harsh Gupta"
+                    android:layout_gravity="center|left"
+                    android:gravity="left|center"
+                    android:padding="2dp"
+                    android:textColor="@color/hintcolor"
+                    android:textSize="12dp"
+                    android:textStyle="normal"></TextView>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="( 9711766274 ), Swet Home Harsh, ABC Street, Sec 12-22, Noida Uttar Pradesh [UP](201301)"
+                    android:layout_gravity="center|left"
+                    android:gravity="left|center"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="12dp"
+                    android:padding="2dp"
+                    android:textStyle="normal"></TextView>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="left|center"
+                    android:padding="5dp"
+                    android:weightSum="5"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/border_background"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:drawableLeft="@drawable/direction"
+                            android:drawablePadding="5dp"
+                            android:gravity="center"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="Direction to Customer"
+                            android:textColor="@color/fontcolor"
+                            android:textSize="12dp"
+                            android:textStyle="bold"></TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginLeft="2dp"
+                        android:background="@drawable/border_background"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:text="Call Customer"
+                            android:drawableLeft="@drawable/call_icon"
+                            android:layout_gravity="right"
+                            android:gravity="center"
+                            android:textColor="@color/fontcolor"
+                            android:textSize="12dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:drawablePadding="5dp"
+                            android:textStyle="bold"></TextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/img_expand"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/dropdown" />
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recycleview_product"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+</androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

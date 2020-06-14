@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="5dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="5dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:weightSum="10"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/menu_view"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:onClick="openmenu"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/menu_icon" />
+
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:src="@drawable/deliverylogo"
+        android:layout_marginLeft="5dp"
+
+        />
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="6"
+        android:orientation="horizontal"
+        android:layout_gravity="left|center"
+        android:gravity="left|center"
+        android:weightSum="10"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="SMART"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/colorAccent"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="  GROCERY"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/gradienttwo"
+            />
+    </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/logout"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="3dp"
+            android:onClick="logout"
+            android:src="@drawable/logout_icon" />
+
+
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
