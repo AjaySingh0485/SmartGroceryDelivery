@@ -1,6 +1,8 @@
 package com.smartgrocerydelivery.Network;
 
 import com.google.gson.JsonObject;
+import com.smartgrocerydelivery.Model.Itemdata.Subitemdata;
+import com.smartgrocerydelivery.Model.Orderdata.Orderitemdata;
 import com.smartgrocerydelivery.Model.User;
 
 import org.json.JSONObject;
@@ -13,11 +15,13 @@ import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 public interface ApiInterface {
 
@@ -46,16 +50,84 @@ public interface ApiInterface {
 
 
 
-    @Headers({
+   /* @Headers({
             "Accept: application/json",
             "Content-Type: application/json"
     })
     @GET("api/OrderDelivery/GetAssignedOrders")
-    Single<JsonObject>GetAssignedOrders(@Header("Authorization") String authToken, @Query("userId") Object locationPost);
+    Single<JsonObject>GetAssignedOrders( @Query("userId") Integer apiKey);*/
+
+
+   /* @GET("api/OrderDelivery/GetAssignedOrders")
+    Single<JsonObject>GetAssignedOrders(@Path("userId") int groupId);*/
+
+
+   /* @Headers("Content-Type: application/json")
+    @HTTP(method = "GET", path = "api/OrderDelivery/GetAssignedOrders", hasBody = true)
+    Single<JsonObject>GetAssignedOrders(@Body JsonObject locationPost);*/
+
+
+
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    @POST("api/OrderDelivery/GetAssignedOrders")
+    Single<Orderitemdata>GetAssignedOrders(@Header("Authorization") String authToken, @Body JsonObject locationPost);
+
+
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    @POST("api/OrderDelivery/getpickedorder")
+    Single<Orderitemdata>getpickedorder(@Header("Authorization") String authToken, @Body JsonObject locationPost);
+
+    //
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    @POST("api/OrderDelivery/getdeliveredorder")
+    Single<Orderitemdata>getdeliveredorder(@Header("Authorization") String authToken, @Body JsonObject locationPost);
 
 
 
 
+
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    @POST("api/Orders/getorderdescription")
+    Single<Subitemdata>getorderdescription(@Header("Authorization") String authToken, @Body JsonObject locationPost);
+
+
+
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    @POST("api/OrderDelivery/updateorderstatus")
+    Single<JsonObject>updateorderstatus(@Header("Authorization") String authToken, @Body JsonObject locationPost);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*
+
+    @HTTP(method = "GET", path = "api/OrderDelivery/GetAssignedOrders", hasBody = true)
+    Single<JsonObject>GetAssignedOrders(@Header("Authorization") String authToken,@Body JsonObject locationPost);*/
 
 
 

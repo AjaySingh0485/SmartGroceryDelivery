@@ -19,7 +19,8 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiClient {private static Retrofit retrofit = null;
+public class ApiClient {
+    private static Retrofit retrofit = null;
     private static int REQUEST_TIMEOUT = 80;
     private static OkHttpClient okHttpClient;
 

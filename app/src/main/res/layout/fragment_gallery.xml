@@ -9,7 +9,7 @@
     tools:context=".Activitys.ui.gallery.NewassingendFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/newly_recycleviw"
+        android:id="@+id/runing_recycleviw"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,6 +17,5 @@
         tools:listitem="@layout/runing_item"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

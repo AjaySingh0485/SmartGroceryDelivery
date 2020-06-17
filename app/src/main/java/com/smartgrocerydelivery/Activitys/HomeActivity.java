@@ -17,7 +17,11 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.smartgrocerydelivery.Activitys.ui.gallery.NewassingendFragment;
 import com.smartgrocerydelivery.Activitys.ui.home.RuningFragment;
+import com.smartgrocerydelivery.Activitys.ui.slideshow.SlideshowFragment;
+
+import com.smartgrocerydelivery.Model.Itemdata.Parameter;
 import com.smartgrocerydelivery.R;
+import com.smartgrocerydelivery.savedata.SavePref;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
@@ -31,6 +35,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeActivity extends AppCompatActivity {
 
 
@@ -39,11 +46,14 @@ public class HomeActivity extends AppCompatActivity {
     ImageView menu_view;
     TextView hadder_text,runing_text,newassingend_text,deleverd_text;
     LinearLayout runing_view,newassingend_view,deleverd_view;
-
+   public static List<Parameter> subitemdata ;
+    public static int item_quanity=0 ;
+    SavePref savePref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        savePref=new SavePref();
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         hadder_text = findViewById(R.id.hadder_text);
@@ -92,8 +102,10 @@ public class HomeActivity extends AppCompatActivity {
                 runing_text.setTextColor(getResources().getColor(R.color.fontcolor));
                 newassingend_text.setTextColor(getResources().getColor(R.color.fontcolor));
                 deleverd_text.setTextColor(getResources().getColor(R.color.gradienttwo));
-                openhome();
+                openhomeSlideshowFragment();
             }
+
+
         });
 
         hadder_text.setText("Running");
@@ -116,16 +128,24 @@ openhome();
 
     }
 
+    private void openhomeSlideshowFragment() {
 
+        Fragment fragCategory = null;
+        fragCategory = new SlideshowFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction().addToBackStack(null);
+        transaction.replace(R.id.container, fragCategory);
+        transaction.commit();
+        closenav();
+    }
 
     private void openNewassingendFragment() {
-
         Fragment fragCategory = null;
         fragCategory = new NewassingendFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction().addToBackStack(null);
         transaction.replace(R.id.container, fragCategory);
         transaction.commit();
         closenav();
+
 
     }
 
@@ -150,7 +170,8 @@ openhome();
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
+                            savePref.saveuser_token(HomeActivity.this,"");
+                            savePref.saveuserId(HomeActivity.this,"");
                             finish();
                         }
                     });
@@ -193,6 +214,9 @@ openhome();
 
     public void logout(View view) {
         try {
+            savePref.saveuser_token(HomeActivity.this,"");
+            savePref.saveuserId(HomeActivity.this,"");
+
             Intent i = new Intent(HomeActivity.this, SplashActivity.class);
             startActivity(i);
             finish();

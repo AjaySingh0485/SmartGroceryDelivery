@@ -42,9 +42,10 @@
                 android:textStyle="bold"></TextView>
 
             <TextView
+                android:id="@+id/order_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SG1118"
+                android:text=""
                 android:layout_gravity="center"
                 android:gravity="left|center"
                 android:textColor="@color/hintcolor"
@@ -80,9 +81,10 @@
                 android:textStyle="bold"></TextView>
 
             <TextView
+                android:id="@+id/date_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="6/9/2020 11:11:09 AM"
+                android:text=""
                 android:layout_gravity="center"
                 android:gravity="left|center"
                 android:textColor="@color/hintcolor"
@@ -116,6 +118,7 @@
                 android:textStyle="bold"></TextView>
 
             <TextView
+                android:id="@+id/sattus"
                 android:layout_width="0dp"
                 android:layout_weight="3.5"
                 android:layout_height="wrap_content"
@@ -157,9 +160,10 @@
                 android:textStyle="bold"></TextView>
 
             <TextView
+                android:id="@+id/vender_addres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Smart Grocery Special, Shop 1,8076279681"
+                android:text=""
                 android:layout_gravity="center|left"
                 android:gravity="left|center"
                 android:textColor="@color/hintcolor"
@@ -193,8 +197,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
-
-                    android:drawableLeft="@drawable/direction"
+android:id="@+id/direction_vender"
+                    android:drawableLeft="@drawable/direcstion_small"
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:paddingLeft="10dp"
@@ -215,11 +219,11 @@
                     android:background="@drawable/border_background"
                     android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/call_vender"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
-
                     android:text="Call Vendor"
-                    android:drawableLeft="@drawable/call_icon"
+                    android:drawableLeft="@drawable/call_samll"
                     android:layout_gravity="right"
                     android:gravity="center"
                     android:textColor="@color/fontcolor"
@@ -271,9 +275,10 @@
 
 
                 <TextView
+                    android:id="@+id/customer_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Harsh Gupta"
+                    android:text=""
                     android:layout_gravity="center|left"
                     android:gravity="left|center"
                     android:padding="2dp"
@@ -283,9 +288,10 @@
 
 
                 <TextView
+                    android:id="@+id/customer_addres"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="( 9711766274 ), Swet Home Harsh, ABC Street, Sec 12-22, Noida Uttar Pradesh [UP](201301)"
+                    android:text=""
                     android:layout_gravity="center|left"
                     android:gravity="left|center"
                     android:textColor="@color/fontcolor"
@@ -316,10 +322,11 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/direction_customer"
                             android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:layout_gravity="center"
-                            android:drawableLeft="@drawable/direction"
+                            android:drawableLeft="@drawable/direcstion_small"
                             android:drawablePadding="5dp"
                             android:gravity="center"
                             android:paddingLeft="10dp"
@@ -340,10 +347,11 @@
                         android:background="@drawable/border_background"
                         android:orientation="horizontal">
                         <TextView
+                            android:id="@+id/customer_call"
                             android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:text="Call Customer"
-                            android:drawableLeft="@drawable/call_icon"
+                            android:drawableLeft="@drawable/call_samll"
                             android:layout_gravity="right"
                             android:gravity="center"
                             android:textColor="@color/fontcolor"
@@ -369,6 +377,7 @@
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recycleview_product"
     android:layout_width="match_parent"
+    android:visibility="gone"
     android:layout_height="wrap_content">
 
 </androidx.recyclerview.widget.RecyclerView>

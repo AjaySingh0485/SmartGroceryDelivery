@@ -5,7 +5,10 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.bumptech.glide.Glide;
 
 import com.smartgrocerydelivery.R;
 
@@ -14,6 +17,9 @@ public class Const {
 
 
     public static final String BASE_URL = "http://182.156.211.186:8484/smartgrocery/";
+
+
+
 //http://182.156.211.186:8484/smartgrocery/api/
 
 
@@ -31,16 +37,25 @@ public class Const {
         return activeNetworkInfo != null;
     }
 
-    public static void startprogress(Context context) {
+    public static void startprogress(final Context context) {
         dialog = new ProgressDialog(context, R.style.full_screen_dialog) {
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.full_dialog);
-                getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT);
+                getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+                ImageView gifImageView = dialog.findViewById(R.id.custom_loading_imageView);
+
+                Glide.with(context)
+                        .load(R.drawable.logo_loder)
+                        .into(gifImageView);
+
             }
         };
+
+
+
+
         dialog.setCancelable(true);
         dialog.show();
     }

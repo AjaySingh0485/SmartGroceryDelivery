@@ -2,8 +2,12 @@ package com.smartgrocerydelivery.Activitys;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.JsonObject;
+import com.smartgrocerydelivery.MainActivity;
 import com.smartgrocerydelivery.Model.User;
 import com.smartgrocerydelivery.Network.ApiClient;
 import com.smartgrocerydelivery.Network.ApiInterface;
@@ -55,6 +60,23 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         apiService = ApiClient.getClient(getApplicationContext()).create(ApiInterface.class);
         init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public void init() {
@@ -100,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         Log.d("TAG@123", paramObject.toString());
-
+        Const.startprogress(this);
 
         disposable.add(
                 apiService.RegisterUser(paramObject)
@@ -109,53 +131,29 @@ public class LoginActivity extends AppCompatActivity {
                         .subscribeWith(new DisposableSingleObserver<User>() {
                             @Override
                             public void onSuccess(User user) {
-
+                                Const.finish_dialog();
                                 if (user.getSuccess()) {
-
-
+                                   // user.getResponseCode()==404
                                     Toast.makeText(LoginActivity.this, user.getMessage(), Toast.LENGTH_LONG).show();
-                                    Log.d("TAG@123", "Success: " + user.getMessage());
-                                    Log.d("TAG@123", "Success: " + user.getParameters().getRole());
-                                    Intent i = new Intent(LoginActivity.this, OtpverificationActivity.class);
-                                    startActivity(i);
-                                    finish();
 
                                 } else {
-
-
                                     Phone_number=login_edit_email.getText().toString().trim();
                                     OTP_number=user.getParameters().getOtp();
-                                    Toast.makeText(LoginActivity.this, user.getMessage(), Toast.LENGTH_LONG).show();
+                                   // Toast.makeText(LoginActivity.this, user.getMessage(), Toast.LENGTH_LONG).show();
                                     Log.d("TAG@123", "onError Status false: " + user.getMessage());
                                     Intent i = new Intent(LoginActivity.this, OtpverificationActivity.class);
                                     startActivity(i);
                                     finish();
                                 }
 
-                                // pbProcessing.setVisibility(View.INVISIBLE);
-                              /*  if (user.getStatus()) {
-                                    savePref.saveuserId(Login.this, user.getUser().getId());
-                                    savePref.saveusername(Login.this, user.getUser().getName());
-                                    savePref.saveuser_email(Login.this, user.getUser().getEmail());
-                                    savePref.saveuser_type(Login.this, user.getUser().getUserType());
-                                    savePref.saveuser_pic(Login.this, user.getUser().getProfilePic());
-                                    savePref.saveLoggedIn(Login.this, "true");
-                                    Toast.makeText(Login.this, user.getMessage(), Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(Login.this, Welcome.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Toast.makeText(Login.this, user.getMessage(), Toast.LENGTH_LONG).show();
 
-                                }*/
                             }
 
                             @Override
                             public void onError(Throwable e) {
-                                // pbProcessing.setVisibility(View.INVISIBLE);
+                                Const.finish_dialog();
                                 Log.d("TAG@123", "onError: " + e.getMessage());
-                                Toast.makeText(LoginActivity.this, "Getting Some Error,Please Try Later..", Toast.LENGTH_LONG).show();
+                                //Toast.makeText(LoginActivity.this, "Getting Some Error,Please Try Later..", Toast.LENGTH_LONG).show();
 
                             }
                         }));

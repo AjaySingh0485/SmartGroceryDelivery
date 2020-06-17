@@ -18,13 +18,17 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class APIClientblog {private static Retrofit retrofit = null;
+import static com.smartgrocerydelivery.Network.Const.Token;
+
+public class APIClientblog {
+
+
+    private static Retrofit retrofit = null;
     private static int REQUEST_TIMEOUT = 80;
     private static OkHttpClient okHttpClient;
 
 
 
-/*
     public static Retrofit getClientblog(Context context) {
 
         if (okHttpClient == null)
@@ -35,7 +39,7 @@ public class APIClientblog {private static Retrofit retrofit = null;
                     .setLenient()
                     .create();
             retrofit = new Retrofit.Builder()
-                    .baseUrl(Const.BASE_URL_blog)
+                    .baseUrl(Const.BASE_URL)
                     .client(okHttpClient)
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gson))
@@ -43,7 +47,6 @@ public class APIClientblog {private static Retrofit retrofit = null;
         }
         return retrofit;
     }
-*/
 
 
 
@@ -72,15 +75,7 @@ public class APIClientblog {private static Retrofit retrofit = null;
             public Response intercept(Chain chain) throws IOException {
                 Request original = chain.request();
                 Request.Builder requestBuilder = original.newBuilder()
-                        .addHeader("X-API-KEY", "wyl@123");
-
-
-                // Adding Authorization token (API Key)
-                // Requests will be denied without API key
-                /*if (!TextUtils.isEmpty(PrefUtils.getApiKey(context))) {
-                    requestBuilder.addHeader("Authorization", PrefUtils.getApiKey(context));
-                }*/
-                requestBuilder.addHeader("Authorization", getAuthToken());
+                        .addHeader("Authorization","Bearer " +Token);
                 Request request = requestBuilder.build();
                 return chain.proceed(request);
             }
@@ -93,15 +88,7 @@ public class APIClientblog {private static Retrofit retrofit = null;
 
 
 
-    public static String getAuthToken() {
-        byte[] data = new byte[0];
-        try {
-            data = ("apiadmin"+":"+"wyl@123").getBytes("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return "Basic " + Base64.encodeToString(data, Base64.NO_WRAP);
-    }
+
 
 
 
