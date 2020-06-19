@@ -1,12 +1,14 @@
 package com.smartgrocerydelivery.Activitys.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,7 +25,9 @@ import com.smartgrocerydelivery.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.smartgrocerydelivery.Activitys.HomeActivity.item_price;
 import static com.smartgrocerydelivery.Activitys.HomeActivity.item_quanity;
+import static com.smartgrocerydelivery.Activitys.HomeActivity.share_data;
 import static com.smartgrocerydelivery.Activitys.HomeActivity.subitemdata;
 
 public class ActionBottomDialogFragment extends BottomSheetDialogFragment
@@ -33,10 +37,11 @@ public class ActionBottomDialogFragment extends BottomSheetDialogFragment
     private ItemClickListener mListener;
     RecyclerView recyclerViewProduct;
     View root;
-    TextView total_quanity;
+    TextView total_quanity,price_selling;
     ProductAdapter productAdapter;
 LinearLayout order_stsus;
     Spinner spinner;
+    ImageView share_icon;
     Button ok_button;
 
     public static ActionBottomDialogFragment newInstance(String data) {
@@ -64,7 +69,39 @@ LinearLayout order_stsus;
         ok_button = root.findViewById(R.id.ok_button);
         order_stsus= root.findViewById(R.id.order_stsus);
         total_quanity= root.findViewById(R.id.total_quanity);
+        share_icon= root.findViewById(R.id.share_icon);
+
+
+
+
+
+
+        price_selling=root.findViewById(R.id.price_selling);
+        price_selling.setText("₹"+" "+item_price);
+
+
         total_quanity.setText(""+item_quanity);
+
+
+
+        share_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try{
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, share_data);
+                sendIntent.setType("text/plain");
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
+                }catch (Exception e){
+
+                }
+
+
+            }
+        });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         productAdapter = new ProductAdapter(getActivity(), subitemdata);
         recyclerViewProduct.setLayoutManager(mLayoutManager);

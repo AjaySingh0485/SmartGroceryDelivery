@@ -48,7 +48,30 @@ public interface ApiInterface {
     Single<User>OTPverification(@Body JsonObject locationPost);
 
 
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    @POST("api/userdetails/resetpassword")
+    Single<JsonObject>Forgot_password_update(@Body JsonObject locationPost);
 
+
+////////////////////////////
+
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    @POST("api/userdetails/forgotpasswordotp")
+    Single<JsonObject>OTP_Forgot_verification(@Body JsonObject locationPost);
+
+    /////////////////
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    @POST("api/UserDetails/forgotpassword")
+    Single<JsonObject>Forgot(@Body JsonObject locationPost);
 
    /* @Headers({
             "Accept: application/json",

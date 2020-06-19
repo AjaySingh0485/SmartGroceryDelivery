@@ -52,11 +52,13 @@
 
 
                     <TextView
+                        android:id="@+id/verifly_otp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="15dp"
                         android:text="VERIFY OTP"
+                        android:textAllCaps="true"
                         android:textColor="@color/gradienttwo"
                         android:textSize="22dp"
                         android:layout_gravity="center"
@@ -77,16 +79,13 @@
 
 
 
-                        <TextView
+
+
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
-                            android:text="CountryCode"
-                            android:textColor="@color/fontcolor"
-                            android:textSize="14dp"
-                            android:textStyle="bold"></TextView>
-
-
+                            android:layout_height="match_parent"
+                            android:id="@+id/enter_otp_main"
+                            android:orientation="vertical">
 
 
                         <TextView
@@ -117,6 +116,91 @@
                         </EditText>
 
 
+</LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/password_main"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:text="Enter Password"
+                                android:textColor="@color/fontcolor"
+                                android:textSize="14dp"
+                                android:textStyle="bold">
+
+                            </TextView>
+
+                            <EditText
+                                android:id="@+id/edit_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/linear_layout_border_white_bg"
+                                android:hint="Enter Password"
+                                android:inputType="textPassword"
+                                android:paddingLeft="5dp"
+                                android:text=""
+                                android:paddingRight="5dp"
+                                android:layout_marginTop="5dp"
+                                android:textColor="@color/fontcolor"
+                                android:textColorHint="@color/hintcolor"
+                                android:textSize="14dp">
+
+
+                            </EditText>
+
+
+
+
+
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:text="Confirm Password"
+                                android:textColor="@color/fontcolor"
+                                android:textSize="14dp"
+                                android:textStyle="bold">
+
+                            </TextView>
+
+                            <EditText
+                                android:id="@+id/confirm_edit_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/linear_layout_border_white_bg"
+                                android:hint="Enter Confrim Password"
+                                android:inputType="textPassword"
+                                android:paddingLeft="5dp"
+                                android:text=""
+                                android:paddingRight="5dp"
+                                android:layout_marginTop="5dp"
+                                android:textColor="@color/fontcolor"
+                                android:textColorHint="@color/hintcolor"
+                                android:textSize="14dp">
+
+
+                            </EditText>
+
+                        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -141,6 +225,18 @@
                             android:textAllCaps="false"
                             android:textStyle="bold"></Button>
 
+
+                        <Button
+                            android:id="@+id/submit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/continew_background"
+                            android:text="Submit"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"></Button>
 
 
 

@@ -37,7 +37,9 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
+import static com.smartgrocerydelivery.Activitys.HomeActivity.item_price;
 import static com.smartgrocerydelivery.Activitys.HomeActivity.item_quanity;
+import static com.smartgrocerydelivery.Activitys.HomeActivity.share_data;
 import static com.smartgrocerydelivery.Activitys.HomeActivity.subitemdata;
 import static com.smartgrocerydelivery.Network.Const.Token;
 import static com.smartgrocerydelivery.Network.Const.user_id;
@@ -170,14 +172,29 @@ public class NewassingendFragment  extends Fragment implements NewassingendAdapt
                                 if(user.getSuccess()){
                                     subitemdata = new ArrayList<com.smartgrocerydelivery.Model.Itemdata.Parameter>();
                                     item_quanity=0;
+                                    item_price=0.0;
+                                    share_data="";
                                     for(int i=0;i<user.getParameters().size();i++){
-                                        if(user.getParameters().get(i).getRowStatus()==1){
-                                            item_quanity=item_quanity+user.getParameters().get(i).getQuantity();
 
+
+
+                                        if(user.getParameters().get(i).getRowStatus()==1){
+
+
+                                            if(share_data.equals("")){
+                                                share_data="Your Order Id is "+user.getParameters().get(i).getOrderId().toString()+"-"+user.getParameters().get(i).getProductName().toString();
+                                            }
+                                            else {
+                                                share_data=share_data+",\n"+user.getParameters().get(i).getProductName().toString();
+
+                                            }
+
+                                            item_quanity=item_quanity+user.getParameters().get(i).getQuantity();
+                                            item_price=item_price+user.getParameters().get(i).getSellingPrice();
                                             subitemdata.add(user.getParameters().get(i));
                                         }
                                     }
-
+                                    share_data=share_data+".\n\n\nTeam Smart Grocery";
 
                                     showBottomSheet();
                                 }

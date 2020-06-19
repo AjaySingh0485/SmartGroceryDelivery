@@ -15,6 +15,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,10 +51,18 @@ public class LoginActivity extends AppCompatActivity {
 
     Spinner spinner_issue;
     EditText login_edit_email, login_edit_password;
-    Button login_text;
+
     TextView forgot_password;
     private ApiInterface apiService;
     private CompositeDisposable disposable = new CompositeDisposable();
+
+    TextView login_hadder;
+    RelativeLayout forgot_main;
+    Button submit_text,back_text;
+    Button login_text;
+    Boolean login_flag=true;
+    LinearLayout password_main;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +95,66 @@ public class LoginActivity extends AppCompatActivity {
         login_edit_password = findViewById(R.id.login_edit_password);
         login_text = findViewById(R.id.login_text);
         forgot_password = findViewById(R.id.forgot_password);
+        login_hadder = findViewById(R.id.login_hadder);
+         forgot_main= findViewById(R.id.forgot_main);
+        submit_text= findViewById(R.id.submit_text);
+        back_text= findViewById(R.id.back_text);
+        password_main= findViewById(R.id.password_main);
+
+
+        login_hadder.setText("DELIVERY EXECUTIVE LOGIN");
+        login_flag=true;
+        forgot_main.setVisibility(View.GONE);
+
+        forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login_flag=false;
+                login_hadder.setText("Forgot Password");
+                forgot_main.setVisibility(View.VISIBLE);
+                login_text.setVisibility(View.GONE);
+                password_main.setVisibility(View.GONE);
+                forgot_password.setVisibility(View.GONE);
+            }
+        });
+        back_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login_flag=true;
+                login_hadder.setText("DELIVERY EXECUTIVE LOGIN");
+                forgot_main.setVisibility(View.GONE);
+                login_text.setVisibility(View.VISIBLE);
+                password_main.setVisibility(View.VISIBLE);
+                forgot_password.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+
+
+
+
+
+
+        submit_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!Const.isNetworkAvailable(LoginActivity.this)) {
+                    Snackbar.make(v, "Network Not Available", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                } else {
+                    if (login_edit_email.getText().toString().trim().length() != 10) {
+                        login_edit_email.setError(getString(R.string.error_invalid_email));
+                    } else {
+
+                        forgot();
+                    }
+                }
+            }
+        });
+
+
 
         login_text.setOnClickListener(new View.OnClickListener() {
 
@@ -106,7 +176,93 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        login_hadder.setText("DELIVERY EXECUTIVE LOGIN");
+        login_flag=true;
+        forgot_main.setVisibility(View.GONE);
+        login_text.setVisibility(View.VISIBLE);
+        password_main.setVisibility(View.VISIBLE);
+        forgot_password.setVisibility(View.VISIBLE);
+    }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        login_hadder.setText("DELIVERY EXECUTIVE LOGIN");
+        login_flag=true;
+        forgot_main.setVisibility(View.GONE);
+        login_text.setVisibility(View.VISIBLE);
+        password_main.setVisibility(View.VISIBLE);
+        forgot_password.setVisibility(View.VISIBLE);
+
+
+
+    }
+
+    private void forgot(){
+        JsonObject paramObject = null;
+        try {
+            paramObject = new JsonObject();
+            paramObject.addProperty("mobileNumber", login_edit_email.getText().toString().trim());
+            paramObject.addProperty("countryCode", "+91");
+            paramObject.addProperty("userType", "delivery");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        Log.d("TAG@123", paramObject.toString());
+        Const.startprogress(this);
+
+        disposable.add(
+                apiService.Forgot(paramObject)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeWith(new DisposableSingleObserver<JsonObject>() {
+                            @Override
+                            public void onSuccess(JsonObject user) {
+                                Const.finish_dialog();
+
+                                Log.d("TAG@123",user.toString());
+                                if(user.getAsJsonObject().get("responseCode").getAsInt()==200){
+
+                                    Phone_number=login_edit_email.getText().toString().trim();
+                                    Intent i = new Intent(LoginActivity.this, OtpverificationActivity.class);
+                                    i.putExtra("Flag","Forgot");
+                                    startActivity(i);
+                                }
+                                else {
+                                    Toast.makeText(LoginActivity.this,user.getAsJsonObject().get("message").getAsString(),Toast.LENGTH_LONG).show();
+
+                                }
+
+
+
+
+
+                               /* if (user.getSuccess()) {
+                                    // user.getResponseCode()==404
+                                    Toast.makeText(LoginActivity.this, user.getMessage(), Toast.LENGTH_LONG).show();
+
+                                } else {
+
+                                }*/
+
+
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                Const.finish_dialog();
+                                Log.d("TAG@123", "onError: " + e.getMessage());
+                                //Toast.makeText(LoginActivity.this, "Getting Some Error,Please Try Later..", Toast.LENGTH_LONG).show();
+
+                            }
+                        }));
+    }
 
     private void loginuser() {
         JsonObject paramObject = null;
@@ -142,6 +298,7 @@ public class LoginActivity extends AppCompatActivity {
                                    // Toast.makeText(LoginActivity.this, user.getMessage(), Toast.LENGTH_LONG).show();
                                     Log.d("TAG@123", "onError Status false: " + user.getMessage());
                                     Intent i = new Intent(LoginActivity.this, OtpverificationActivity.class);
+                                    i.putExtra("Flag","Login");
                                     startActivity(i);
                                     finish();
                                 }

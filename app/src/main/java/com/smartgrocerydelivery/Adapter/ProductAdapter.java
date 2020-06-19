@@ -30,7 +30,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Myholder
     @NonNull
     @Override
     public Myholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.product_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_item, parent, false);
         return new Myholder(view);
     }
 
@@ -38,26 +38,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Myholder
     public void onBindViewHolder(@NonNull Myholder holder, int position) {
 
         holder.item_name.setText(String.valueOf(list.get(position).getProductName()));
+        holder.item_price.setText("₹ " + list.get(position).getSellingPrice());
+        if (list.get(position).getWeight() >= 1000) {
+            int wight = list.get(position).getWeight() / 1000;
+            holder.item_quanty.setText(String.valueOf(wight) + "Kg");
 
-        if(list.get(position).getWeight()>=1000){
-            int wight=list.get(position).getWeight()/1000;
-            holder.item_quanty.setText(String.valueOf(wight)+"Kg");
-
-        }
-        else {
-            holder.item_quanty.setText(String.valueOf(list.get(position).getWeight())+"g");
+        } else {
+            holder.item_quanty.setText(String.valueOf(list.get(position).getWeight()) + "g");
         }
 
         holder.item_county.setText(String.valueOf(list.get(position).getQuantity()));
         String intRate = list.get(position).getMappingId().toString();
 
 
-      try{  Glide.with(context)
-                .load(Const.BASE_URL+"GroceryPackagingImage/"+intRate+".jpg")
-                .into(holder.item_img);
+        try {
+            Glide.with(context)
+                    .load(Const.BASE_URL + "GroceryPackagingImage/" + intRate + ".jpg")
+                    .into(holder.item_img);
 
-       }
-      catch (Exception e){}
+        } catch (Exception e) {
+        }
     }
 
     @Override
@@ -65,17 +65,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Myholder
         return list.size();
     }
 
-    public class Myholder extends RecyclerView.ViewHolder  {
-        TextView item_name,item_quanty,item_county;
+    public class Myholder extends RecyclerView.ViewHolder {
+        TextView item_name, item_quanty, item_county, item_price;
         ImageView item_img;
+
         public Myholder(@NonNull View itemView) {
             super(itemView);
 
-            item_img=itemView.findViewById(R.id.item_img);
-            item_name=itemView.findViewById(R.id.item_name);
-            item_quanty=itemView.findViewById(R.id.item_quanty);
-            item_county=itemView.findViewById(R.id.item_count);
-
+            item_img = itemView.findViewById(R.id.item_img);
+            item_name = itemView.findViewById(R.id.item_name);
+            item_quanty = itemView.findViewById(R.id.item_quanty);
+            item_county = itemView.findViewById(R.id.item_count);
+            item_price = itemView.findViewById(R.id.item_price);
         }
     }
 }

@@ -59,8 +59,10 @@
                     android:text="DELIVERY EXECUTIVE LOGIN"
                     android:textColor="@color/gradienttwo"
                     android:textSize="22dp"
+                    android:textAllCaps="true"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:id="@+id/login_hadder"
                     android:textStyle="bold"></TextView>
 
 
@@ -139,6 +141,12 @@
                     </EditText>
 
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/password_main"
+                        android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -164,6 +172,71 @@
 
 
                     </EditText>
+
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/forgot_main"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/submit_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:background="@drawable/continew_background"
+                            android:text="Submit"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"
+                            android:textAllCaps="false"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:layout_gravity="left"
+                            android:textStyle="bold"></Button>
+
+
+                        <Button
+                            android:id="@+id/back_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dp"
+                            android:layout_gravity="right"
+                            android:background="@drawable/continew_background"
+                            android:gravity="center"
+                            android:layout_marginLeft="60dp"
+                            android:layout_toEndOf="@+id/submit_text"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:text="Back to Login"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/submit_text"></Button>
+
+
+                    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

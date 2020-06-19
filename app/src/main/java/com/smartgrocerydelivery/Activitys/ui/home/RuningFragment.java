@@ -54,6 +54,9 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.smartgrocerydelivery.Activitys.HomeActivity.item_quanity;
+import static com.smartgrocerydelivery.Activitys.HomeActivity.item_price;
+
+import static com.smartgrocerydelivery.Activitys.HomeActivity.share_data;
 import static com.smartgrocerydelivery.Activitys.HomeActivity.subitemdata;
 import static com.smartgrocerydelivery.Network.Const.Token;
 import static com.smartgrocerydelivery.Network.Const.user_id;
@@ -184,14 +187,29 @@ public class RuningFragment extends Fragment implements RuningAdapter.AdapterCal
                               if(user_data.getSuccess()){
                                   subitemdata = new ArrayList<com.smartgrocerydelivery.Model.Itemdata.Parameter>();
                                   item_quanity=0;
-
+                                  item_price=0.0;
+                                  share_data="";
                                   for(int i=0;i<user_data.getParameters().size();i++){
+
+
+
                                       if(user_data.getParameters().get(i).getRowStatus()==1){
+
+
+                                          if(share_data.equals("")){
+                                              share_data="Your Order Id is "+user_data.getParameters().get(i).getOrderId().toString()+"-"+user_data.getParameters().get(i).getProductName().toString();
+                                          }
+                                          else {
+                                              share_data=share_data+",\n"+user_data.getParameters().get(i).getProductName().toString();
+
+                                          }
                                           item_quanity=item_quanity+user_data.getParameters().get(i).getQuantity();
+                                          item_price=item_price+user_data.getParameters().get(i).getSellingPrice();
                                           subitemdata.add(user_data.getParameters().get(i));
                                       }
                                   }
 
+                                  share_data=share_data+".\n\n\nTeam Smart Grocery";
 
                                 showBottomSheet();
                               }

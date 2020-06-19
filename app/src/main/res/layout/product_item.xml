@@ -50,18 +50,61 @@
                         android:padding="5dp"
                         android:src="@drawable/splash_logo"></ImageView>
 
-                    <TextView
-                        android:id="@+id/item_name"
+
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="top|left"
-                        android:layout_marginTop="5dp"
-                        android:gravity="top|left"
-                        android:paddingLeft="5dp"
-                        android:textColor="@color/fontcolor"
-                        android:text="Saffola masala peppy tomato oats"
-                        android:textSize="14dp"
-                        android:textStyle="normal"></TextView>
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/item_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|left"
+                            android:layout_marginTop="5dp"
+                            android:gravity="top|left"
+                            android:paddingLeft="5dp"
+                            android:textColor="@color/fontcolor"
+                            android:text="Saffola masala peppy tomato oats"
+                            android:textSize="14dp"
+                            android:textStyle="normal"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|left"
+                            android:layout_marginTop="5dp"
+                            android:gravity="top|left"
+                            android:paddingLeft="5dp"
+                            android:textColor="@color/fontcolor"
+                            android:text="Price : "
+                            android:textSize="14dp"
+                            android:textStyle="bold"></TextView>
+
+
+
+                            <TextView
+                                android:id="@+id/item_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top|left"
+                                android:layout_marginTop="5dp"
+                                android:gravity="top|left"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/fontcolor"
+                                android:text="₹ 200"
+                                android:textSize="14dp"
+                                android:textStyle="normal"></TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
 
 
                 </LinearLayout>
@@ -85,6 +128,9 @@
                     android:text="250gm"
                     android:textSize="14dp"
                     android:textStyle="normal"></TextView>
+
+
+
 
                 <View
                     android:layout_width="1dp"
