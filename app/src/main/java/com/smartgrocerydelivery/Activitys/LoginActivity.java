@@ -1,5 +1,6 @@
 package com.smartgrocerydelivery.Activitys;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -21,7 +22,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.google.gson.JsonObject;
 import com.smartgrocerydelivery.MainActivity;
 import com.smartgrocerydelivery.Model.User;
@@ -69,24 +74,27 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         apiService = ApiClient.getClient(getApplicationContext()).create(ApiInterface.class);
+
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("TAG@123", "getInstanceId failed", task.getException());
+                            return;
+                        }
+
+                        // Get new Instance ID token
+                         Const.token = task.getResult().getToken();
+                        Log.d("TAG@123","Token  ---"+ Const.token);
+                        // Log and toast
+
+
+                       /// Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
         init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     public void init() {
@@ -269,7 +277,7 @@ public class LoginActivity extends AppCompatActivity {
         try {
             paramObject = new JsonObject();
             paramObject.addProperty("userData", getdata());
-            paramObject.addProperty("FCNToken", "KzkxfDEyMzQ1Njc4MDZ8QWRtaW5AMTIz");
+            paramObject.addProperty("FCNToken", Const.token);
             paramObject.addProperty("loginRequest", "DELIVERYEXEC");
 
         } catch (Exception e) {

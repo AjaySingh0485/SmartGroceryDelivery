@@ -27,7 +27,7 @@ public class Const {
     public static int OTP_number = 0;
     public static  String Token = "";
     public static  int user_id = 0;
-
+    public static  String token="";
     public static ProgressDialog dialog;
     public static final String PUBLISHABLE_KEY_live = "pk_test_tQ0xcc4SLTFoRsDIJLfYXKqy";
 

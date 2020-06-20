@@ -77,7 +77,9 @@ LinearLayout order_stsus;
 
 
         price_selling=root.findViewById(R.id.price_selling);
-        price_selling.setText("₹"+" "+item_price);
+
+
+        price_selling.setText("₹"+" "+String.format("%.02f", item_price));
 
 
         total_quanity.setText(""+item_quanity);
