@@ -1,42 +1,71 @@
 {
   "project_info": {
-    "project_number": "839223577593",
-    "firebase_url": "https://smartgrocerydelivery-c6e38.firebaseio.com",
-    "project_id": "smartgrocerydelivery-c6e38",
-    "storage_bucket": "smartgrocerydelivery-c6e38.appspot.com"
+    "project_number": "418121522562",
+    "firebase_url": "https://smartgrocery-9e429.firebaseio.com",
+    "project_id": "smartgrocery-9e429",
+    "storage_bucket": "smartgrocery-9e429.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:839223577593:android:677fbac7cd104a01c28b28",
+        "mobilesdk_app_id": "1:418121522562:android:005ee3903eab7a4ab2439b",
         "android_client_info": {
-          "package_name": "com.smartgrocerydelivery"
+          "package_name": "com.smartgrocery"
         }
       },
       "oauth_client": [
         {
-          "client_id": "839223577593-3qoc00suo9q3p2lor1aqt6beqndo1t21.apps.googleusercontent.com",
+          "client_id": "418121522562-b3knn7c7homn0gv4h5qq7hr0na064sa8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.smartgrocerydelivery",
-            "certificate_hash": "2996cef94d11af5cc7f95d91cc18e86600f653d7"
+            "package_name": "com.smartgrocery",
+            "certificate_hash": "34699b67593c1ecde564d1390811f45313cb362e"
           }
         },
         {
-          "client_id": "839223577593-4dkhgsmuj5t4uvmjknsgfhmjiksp8ssj.apps.googleusercontent.com",
+          "client_id": "418121522562-ubknkeerm3keqmr1mn9vjs8ichl2k09p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyApPVepfAHEKrqB6Z5TZzPXfwQ8bbQefxE"
+          "current_key": "AIzaSyAgOI8YuOWa4jAFP43oenbRqbxrjpkwHEU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "839223577593-4dkhgsmuj5t4uvmjknsgfhmjiksp8ssj.apps.googleusercontent.com",
+              "client_id": "418121522562-ubknkeerm3keqmr1mn9vjs8ichl2k09p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418121522562:android:ec1c4c189008eac3b2439b",
+        "android_client_info": {
+          "package_name": "com.smartgrocerydelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418121522562-ubknkeerm3keqmr1mn9vjs8ichl2k09p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgOI8YuOWa4jAFP43oenbRqbxrjpkwHEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418121522562-ubknkeerm3keqmr1mn9vjs8ichl2k09p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -175,9 +175,6 @@ public class NewassingendFragment  extends Fragment implements NewassingendAdapt
                                     item_price=0.0;
                                     share_data="";
                                     for(int i=0;i<user.getParameters().size();i++){
-
-
-
                                         if(user.getParameters().get(i).getRowStatus()==1){
 
 
@@ -190,7 +187,9 @@ public class NewassingendFragment  extends Fragment implements NewassingendAdapt
                                             }
 
                                             item_quanity=item_quanity+user.getParameters().get(i).getQuantity();
-                                            item_price=item_price+user.getParameters().get(i).getSellingPrice();
+                                            item_price=item_price+(user.getParameters().get(i).getSellingPrice()*user.getParameters().get(i).getQuantity());
+
+                                            //    item_price=item_price+user.getParameters().get(i).getSellingPrice();
                                             subitemdata.add(user.getParameters().get(i));
                                         }
                                     }

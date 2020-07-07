@@ -49,7 +49,6 @@ public class HomeActivity extends AppCompatActivity {
    public static List<Parameter> subitemdata ;
     public static int item_quanity=0 ;
     public static double item_price=0.0;
-
     public  static  String share_data="";
 
     SavePref savePref;

@@ -15,12 +15,14 @@ import com.smartgrocerydelivery.R;
 
 public class Const {
 
+    //LOCAL URL
+    //public static final String BASE_URL = "http://182.156.211.186:8484/smartgrocery/";
+    //LIVE URL
+    public static final String BASE_URL="https://www.smartgroceryapp.com/";
 
-    public static final String BASE_URL = "http://182.156.211.186:8484/smartgrocery/";
 
 
-
-//http://182.156.211.186:8484/smartgrocery/api/
+    //http://182.156.211.186:8484/smartgrocery/api/
 
 
     public static  String Phone_number = "";

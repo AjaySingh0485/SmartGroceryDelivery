@@ -18,7 +18,11 @@
     <string-array name="array_countries">
         <item>+91</item>
     </string-array>
-
+    <string-array name="request_status">
+        <item><small>Today</small></item>
+        <item><small>Last Week</small></item>
+        <item><small>Last Month</small></item>
+    </string-array>
 
 
 

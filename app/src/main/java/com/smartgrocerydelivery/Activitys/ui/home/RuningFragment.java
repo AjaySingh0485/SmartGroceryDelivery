@@ -195,7 +195,6 @@ public class RuningFragment extends Fragment implements RuningAdapter.AdapterCal
 
                                       if(user_data.getParameters().get(i).getRowStatus()==1){
 
-
                                           if(share_data.equals("")){
                                               share_data="Your Order Id is "+user_data.getParameters().get(i).getOrderId().toString()+"-"+user_data.getParameters().get(i).getProductName().toString();
                                           }
@@ -204,7 +203,7 @@ public class RuningFragment extends Fragment implements RuningAdapter.AdapterCal
 
                                           }
                                           item_quanity=item_quanity+user_data.getParameters().get(i).getQuantity();
-                                          item_price=item_price+user_data.getParameters().get(i).getSellingPrice();
+                                          item_price=item_price+(user_data.getParameters().get(i).getSellingPrice()*user_data.getParameters().get(i).getQuantity());
                                           subitemdata.add(user_data.getParameters().get(i));
                                       }
                                   }
